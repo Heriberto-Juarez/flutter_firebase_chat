@@ -16,11 +16,15 @@ class _ChatScreenState extends State<ChatScreen> {
 
   void getCurrentUser() {
     final user = _auth.currentUser;
-    print("Email: $user?.email");
+    print("Email: ${user?.email}");
   }
+
 
   @override
   Widget build(BuildContext context) {
+
+    getCurrentUser();
+
     return Scaffold(
       appBar: AppBar(
         leading: null,

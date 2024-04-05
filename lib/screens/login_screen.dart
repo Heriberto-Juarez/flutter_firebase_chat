@@ -1,5 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flash_chat/components/PaddingButton.dart';
 import 'package:flash_chat/constants.dart';
+import 'package:flash_chat/screens/chat_screen.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
@@ -12,6 +14,7 @@ class LoginScreen extends StatefulWidget {
 
 class _LoginScreenState extends State<LoginScreen> {
 
+  final _auth = FirebaseAuth.instance;
   String email = "";
   String password = "";
 
@@ -59,6 +62,11 @@ class _LoginScreenState extends State<LoginScreen> {
               height: 24.0,
             ),
             PaddingButton(buttonText: 'Login', color: Colors.lightBlueAccent, onPressed: () {
+              final user = _auth.signInWithEmailAndPassword(email: email, password: password);
+              print(user);
+              if (user != null){
+                Navigator.pushNamed(context, ChatScreen.id);
+              }
             }),
           ],
         ),
