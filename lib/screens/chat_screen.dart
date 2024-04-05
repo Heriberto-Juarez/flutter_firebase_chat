@@ -16,7 +16,7 @@ class _ChatScreenState extends State<ChatScreen> {
 
   void getCurrentUser() {
     final user = _auth.currentUser;
-    print(user);
+    print("Email: $user?.email");
   }
 
   @override
