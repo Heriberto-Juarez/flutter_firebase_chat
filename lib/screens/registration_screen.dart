@@ -64,6 +64,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                 height: 24.0,
               ),
               PaddingButton(buttonText: 'Register', color: Colors.blueAccent, onPressed: () async {
+                _saving = true;
                 print(email);
                 print(password);
                 try {
@@ -76,6 +77,8 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   print("==== Error ====");
                   print(e);
                 }
+
+                _saving = true;
               }),
             ],
           ),
